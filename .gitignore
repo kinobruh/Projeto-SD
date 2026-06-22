@@ -1,0 +1,21 @@
+# Pastas de compilação e temporárias do Quartus
+db/
+incremental_db/
+output_files/
+greybox_tmp/
+hc_output/
+.qsys_edit/
+simulation/
+
+# Arquivos gerados automaticamente
+*.bak
+*.orig
+*.rpt
+*.summary
+*.sof
+*.pof
+*.jdi
+*.pin
+*.done
+*.qws
+*.smsg
