@@ -4,7 +4,7 @@ Este projeto implementa um jogo de cofre eletrônico desenvolvido em **SystemVer
 
 ---
 
-## 🛠️ Descrição Detalhada dos Requisitos Implementados e Bugs Conhecidos
+##  Descrição Detalhada dos Requisitos Implementados e Bugs Conhecidos
 
 O sistema foi projetado seguindo as melhores práticas de design digital síncrono, dividindo-se em controle de periféricos, lógica de estados e interface visual.
 
@@ -25,13 +25,14 @@ O sistema foi projetado seguindo as melhores práticas de design digital síncro
 4. **Interface Visual Humana:**
    Os displays funcionam em lógica ativa em baixo (Anodo Comum). O array de memória é continuamente mapeado para os decodificadores de sete segmentos. Adicionalmente, uma lógica combinacional soma `4'd1` ao índice interno do estado da FSM e envia para o `HEX4`, exibindo dinamicamente para o usuário o número do dígito que ele está alterando (de 1 a 4).
    
-5. **Bugs Conhecidos (Known Issues):** * **Falta de Auto-Repeat:** A lógica de debounce gera estritamente um pulso por pressionamento físico. Manter o botão de incremento (`KEY[2]`) pressionado não fará o número rolar automaticamente. O usuário deve clicar repetidamente.
+5. **Bugs Conhecidos (Known Issues):**
+   * **Falta de Auto-Repeat:** A lógica de debounce gera estritamente um pulso por pressionamento físico. Manter o botão de incremento (`KEY[2]`) pressionado não fará o número rolar automaticamente. O usuário deve clicar repetidamente.
    * **Interrupção de Animação via Reset:** O botão de reset (`KEY[0]`) é tratado de forma imediata dentro do bloco sequencial principal. Se acionado durante o bloqueio temporizado (`ST_SUCCESS` ou `ST_FAIL`), ele cancelará a animação em andamento, apagará os LEDs e forçará o retorno ao `ST_DIGIT0`.
    * **Falta de Feedback no Incremento de Limites:** Ao incrementar de 9 para 0 ou decrementar de 0 para 9, a transição é instantânea (wraparound). Não há feedback tátil ou visual para indicar que o limite foi atingido.
 
 ---
 
-## 📊 Diagrama de Estados (FSM)
+##  Diagrama de Estados (FSM)
 
 Abaixo está o fluxo de transição da Máquina de Estados Finitos que dita as regras do sistema:
 
